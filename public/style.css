@@ -1,0 +1,445 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Open Sauce Sans", "Montserrat";
+}
+
+/* Navigation */
+
+.nav-container {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 1);
+    height: 72px;
+    z-index: 500;
+    position: relative;
+}
+
+.wrapper {
+    width: 1200px ;
+    margin: 0 auto;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+nav ul{
+    display: flex;
+}
+
+.nav-items li{
+    list-style: none;
+    margin-right: 100px;
+    align-items: center;
+}
+
+.nav-items li:nth-last-of-type(1){
+   margin: 0;
+}
+
+.nav-items li a {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #000000
+}
+
+.nav-button a{
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #50A2A7;
+    border-radius: 8px;
+    font-weight: 800;
+    padding: 12px 48px;
+    text-decoration: none;
+    float:right;
+    transition: 300ms;
+}
+
+/* Header */
+
+.header-container{
+    background: #FFFFFF url('images/Mask\ group.png');
+    height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+header{
+    align-items:center;
+    justify-content: space-between;
+}
+
+header h1{
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 80px;
+    line-height: 117px;
+    text-align: right;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+header p{
+    font-family: 'Open Sauce Sans';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 45px;
+    text-align: right;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+}
+
+header a {
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #50A2A7;
+    border-radius: 8px;
+    font-weight: 800;
+    padding: 12px 48px;
+    text-decoration: none;
+    float:right;
+    transition: 300ms;
+}
+
+header a:hover {
+    transform: translate(-8px);
+    background-color: #417B7E;
+}
+
+.column{
+    margin-top: 120px;
+    float: left;
+    width: 50%;
+    border-radius: 24px;
+}
+
+.column-about{
+    margin-top: 145px;
+    float: left;
+    align-items:center;
+    display: flex;
+    width: 50%;
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column h3{
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: center;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.column p{
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.column a {
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #50A2A7;
+    border-radius: 8px;
+    font-weight: 800;
+    padding: 12px 48px;
+    text-decoration: none;
+    margin-right: 180px;
+    float:right;
+    transition: 300ms;
+    margin-bottom: 100px;
+}
+
+.column a:hover {
+    background-color: #417B7E;
+}
+
+.column img{
+    margin-left: 95px;
+    width: 400px;
+    height: auto; 
+    text-align: center;  
+    padding: 15px; 
+}
+
+label{
+    font-family: 'Open Sauce Sans';
+}
+
+.label h1{
+    font-family: 'Open Sauce Sans';
+    margin-bottom: 40px;
+}
+
+/* Register + Login */
+
+.register-content{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #50A2A7;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-family: 'Open Sauce Sans';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 18px;
+    border-radius: 8px;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.register-content h1{
+    font-family: 'Montserrat';
+    line-height: 30px;
+    font-weight: 700;
+    line-height: 117px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.register-content p{
+    font-family: 'Open Sauce Sans';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.register-content b{
+    font-family: 'Open Sauce Sans';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+/* Donatur + Patient */
+
+select[id=blood], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+  }
+
+/* Table */
+
+.hospital-content{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.hospital-content h1{
+    font-family: 'Montserrat';
+    line-height: 30px;
+    font-weight: 700;
+    line-height: 117px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.hospital-content p{
+    font-family: 'Open Sauce Sans';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.hospital-content b{
+    font-family: 'Open Sauce Sans';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+table {
+    margin: 0 auto;
+    font-size: large;
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    font-weight: lighter;
+}
+
+th, td {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sauce Sans';
+}
+
+th {
+    background-color: #50A2A7;
+    color: #FFFFFF;
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #50A2A7;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    margin-top: 5px;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #50A2A7;
+  }
+  
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* Footer */
+
+.footer-container {
+    background: #50A2A7;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 1);
+    height: 300px;
+    position: relative;
+}
+
+.wrapper {
+    width: 1200px ;
+    margin: 0 auto;
+}
+
+.column-left{
+    margin-top: 40px;
+    float: left;
+    width: 50%;
+    border-radius: 24px;
+}
+
+.column-left p{
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.column-right{
+    margin-top: 40px;
+    float: right;
+    width: 50%;
+    border-radius: 24px;
+}
+
+.column-right {
+    list-style-type: none;
+  }
+  
+.column-right li {
+    display: grid;
+    text-align: right;
+    list-style-position: inside;
+  }
+  
+.column-right li a {
+    color: #FFFFFF;
+    font-size: 1.2em;
+    margin: 11px 20px 0px;
+    text-decoration: none;
+  }

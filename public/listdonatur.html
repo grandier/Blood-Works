@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Bank - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="" />
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="home.html">About Us</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Become a Donor</a>
+            </li>
+            <li>
+              <a href="patient.html">Need Blood?</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Hospital List</a>
+            </li>
+            <li>
+              <a href="bloodbank.html">Blood Bank List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="hospital-container">
+      <div class="wrapper">
+        <hospital>
+          <div class="hospital-content">
+            <h1>Blood Bank Donor</h1>
+            <hr />
+            <table id="show_donatur">
+              <thead>
+                <tr>
+                  <th>Donor Name</th>
+                  <th>Donor Age</th>
+                  <th>Donor Contact</th>
+                  <th>Blood Type</th>
+                  <th>Current Disease</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </hospital>
+        <button type="submit" class="registerbtn" id="back">Back</button>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="" />
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li><a href="home.html">About Us</a></li>
+                  <li><a href="donatur.html">Become a Donor</a></li>
+                  <li><a href="patient.html">Need Blood?</a></li>
+                  <li><a href="rumahsakit.html">Hospital List</a></li>
+                  <li><a href="bloodbank.html">Blood Bank List</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $.post("/showDonatur", {}, function (data) {
+          console.log(data);
+          $("#show_donatur").html(data);
+        });
+        $("#back").click(function () {
+          window.location.href = "/rumahsakit.html";
+        });
+      });
+    </script>
+  </body>
+</html>

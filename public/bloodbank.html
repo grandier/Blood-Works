@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Bank - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="" />
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="home.html">About Us</a>
+            </li>
+            <li>
+              <a href="donatur.html">Become a Donor</a>
+            </li>
+            <li>
+              <a href="patient.html">Need Blood?</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Hospital List</a>
+            </li>
+            <li>
+              <a href="bloodbank.html">Blood Bank List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="hospital-container">
+      <div class="wrapper">
+        <hospital>
+          <div class="hospital-content">
+            <h1>Blood Bank that are currently in the Hospital</h1>
+            <p>These are currently the Blood Banks we are partnered with.</p>
+            <hr />
+            <input
+              type="text"
+              placeholder="Search by id..."
+              name="search"
+              id="search"
+              onkeyup="myFunction()"
+            />
+            <button type="submit" class="registerbtn" id="submit">
+              Submit
+            </button>
+            <table id="data_bb">
+              <thead>
+                <tr>
+                  <th>Blood Bank ID</th>
+                  <th>Blood Name</th>
+                  <th>Blood Type</th>
+                </tr>
+              </thead>
+            </table>
+            <button type="submit" class="registerbtn" id="back">Back</button>
+          </div>
+        </hospital>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="" />
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li><a href="home.html">About Us</a></li>
+                  <li><a href="donatur.html">Become a Donor</a></li>
+                  <li><a href="patient.html">Need Blood?</a></li>
+                  <li><a href="rumahsakit.html">Hospital List</a></li>
+                  <li><a href="bloodbank.html">Blood Bank List</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        var donor_id;
+        $("#submit").click(function () {
+          donor_id = $("#search").val();
+          $.post("/checkDonaturBB",{ donor_id: donor_id }, function (data1) {
+              if (data1 === "done") {
+                window.location.href = "/listdonatur.html";
+                window.alert("Sukses");
+              } else if (data1 == "empty") {
+                window.alert("No Data of Donor");
+                window.location.href = "/bloodbank.html";
+              } else {
+                window.alert("Donatur ID not found");
+                window.location.href = "/bloodbank.html";
+              }
+            }
+          );
+        });
+
+        $.post("/showBB", {}, function (data) {
+          console.log(data);
+          $("#data_bb").html(data);
+        });
+        $("#back").click(function () {
+          window.location.href = "/rumahsakit.html";
+        });
+      });
+
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data_bb");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="">
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="adminuser.html">User List</a>
+            </li>
+            <li>
+              <a href="adminpatient.html">Patient List</a>
+            </li>
+            <li>
+              <a href="admindonatur.html">Donor List</a>
+            </li>
+            <li>
+              <a href="adminrumahsakit.html">Hospital List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="register-container">
+      <div class="wrapper">
+        <register>
+          <div class="register-content">
+            <h1>Update Patients</h1>
+            <p>Please fill in this form to update the patient.</p>
+            <hr>
+              <label for="name">
+                <b>Name</b>
+              </label>
+              <input type="text" placeholder="Enter Name" name="name" id="name" required>
+              <label for="age">
+                <b>Age</b>
+              </label>
+              <input type="text" placeholder="Enter Age" name="age" id="age" required>
+              <label for="contact">
+                <b>Contact</b>
+              </label>
+              <input type="text" placeholder="Enter contact number" name="contact" id="contact" required>
+              <label for="blood_type">Blood Type</label>
+                <select id="blood_type" name="blood_type">
+                  <option>Select Blood Type</option>
+                  <option>A Positive</option>
+                  <option>A Negative</option>
+                  <option>A Unknown</option>
+                  <option>B Positive</option>
+                  <option>B Negative</option>
+                  <option>B Unknown</option>
+                  <option>AB Positive</option>
+                  <option>AB Negative</option>
+                  <option>AB Unknown</option>
+                  <option>O Positive</option>
+                  <option>O Negative</option>
+                  <option>O Unknown</option>
+                  <option>Unknown</option>
+                </select>
+                <label for="current_disease">
+                  <b>Current Disease</b>
+                </label>
+                <input type="text" placeholder="Enter current disease" name="current_disease" id="current_disease" required>
+              <hr>
+              <button type="submit" class="registerbtn" id="update">Update</button>
+              <button type="submit" class="registerbtn" id="cancel">Cancel</button>
+          </div>
+      </div>
+      </register>
+    </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="">
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#">Become a Donor</a>
+                  </li>
+                  <li>
+                    <a href="#">Need Blood?</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        jQuery(document).ready(function($) {
+          var patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease;
+          $('#update').click(function() {
+          patient_name = $('#name').val();
+          patient_age = $('#age').val();
+          patient_contact = $('#contact').val();
+          patient_blood_type = $("#blood_type").val();
+          patient_current_disease = $("#current_disease").val();
+                          
+          $.post('/updatePatient', { patient_name: patient_name, patient_age: patient_age, patient_contact: patient_contact, patient_blood_type: patient_blood_type, patient_current_disease: patient_current_disease }, function(data) {
+            if (data === 'done') {
+               window.location.href = '/adminpatient.html';
+               window.alert('Update Sukses');
+              }
+            else if (data === 'empty') {
+                window.alert('Column not filled');
+              }
+            else {
+                window.alert('Registrasi Gagal');
+              }
+            });
+          });
+
+          $('#cancel').click(function() {
+            window.location.href = '/adminpatient.html';
+          });
+        });
+      </script>
+    
+  </body>
+</html>

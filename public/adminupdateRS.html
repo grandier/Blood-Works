@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="">
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="adminuser.html">User List</a>
+            </li>
+            <li>
+              <a href="adminpatient.html">Patient List</a>
+            </li>
+            <li>
+              <a href="admindonatur.html">Donor List</a>
+            </li>
+            <li>
+              <a href="adminrumahsakit.html">Hospital List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="register-container">
+      <div class="wrapper">
+        <register>
+          <div class="register-content">
+            <h1>Update Hospitals</h1>
+            <p>Please fill in this form to update the hospital.</p>
+            <hr>
+
+              <label for="name">
+                <b>Name</b>
+              </label>
+              <input type="text" placeholder="Enter Name" name="name" id="name" required>
+              <label for="email">
+                <b>Address</b>
+              </label>
+              <input type="text" placeholder="Enter Address" name="address" id="address" required>
+              <label for="contact">
+                <b>Contact</b>
+              </label>
+              <input type="text" placeholder="Enter contact number" name="contact" id="contact" required>
+              <hr>
+              <button type="submit" class="registerbtn" id="update">Update</button>
+              <button type="submit" class="registerbtn" id="cancel">Cancel</button>
+          </div>
+      </div>
+      </register>
+    </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="">
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#">Become a Donor</a>
+                  </li>
+                  <li>
+                    <a href="#">Need Blood?</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        jQuery(document).ready(function($) {
+          var hospital_name, hospital_address, hospital_contact;
+          $('#update').click(function() {
+          hospital_name = $('#name').val();
+          hospital_address = $('#address').val();
+          hospital_contact = $('#contact').val();
+                          
+          $.post('/updateRS', { hospital_name: hospital_name, hospital_address: hospital_address, hospital_contact: hospital_contact }, function(data) {
+            if (data === 'done') {
+               window.location.href = '/adminrumahsakit.html';
+               window.alert('Update Sukses');
+              }
+            else if (data === 'empty') {
+                window.alert('Column not filled');
+              }
+            else {
+                window.alert('Registrasi Gagal');
+              }
+            });
+          });
+
+          $('#cancel').click(function() {
+            window.location.href = '/adminrumahsakit.html';
+          });
+        });
+      </script>
+    
+  </body>
+</html>

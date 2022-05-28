@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Blood Works</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="">
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="#">Hospital List</a>
+            </li>
+            <li>
+              <a href="#">User List</a>
+            </li>
+            <li>
+              <a href="#">Patient List</a>
+            </li>
+            <li>
+              <a href="#">Donor List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="register-container">
+      <div class="wrapper">
+        <register>
+          <div class="register-content">
+            <h1>Login</h1>
+            <p>Please login your credentials to access the site as an Admin</p>
+            <hr>
+            <label for="email">
+              <b>Email</b>
+            </label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            <label for="psw">
+              <b>Password</b>
+            </label>
+            <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+            <hr>
+            <button type="submit" class="registerbtn" id="login">Login</button>
+          </div>
+      </div>
+      </register>
+    </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="">
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#">Become a Donor</a>
+                  </li>
+                  <li>
+                    <a href="#">Need Blood?</a>
+                    <li><a href="#">Hospital List</a></li>
+                    <li><a href="#">Blood Bank List</a></li>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        jQuery(document).ready(function($) {
+          var admin_email, admin_password;
+          $('#login').click(function() {
+          admin_email = $('#email').val();
+          admin_password = $('#password').val();
+                          
+          $.post('/loginAdmin', { admin_email: admin_email, admin_password: admin_password }, function(data) {
+            if (data === 'done') {
+               window.location.href = '/adminhome.html';
+               window.alert('Login Sukses');
+              }
+            else if(data == 'email'){
+                window.alert('Email/Password Salah');
+              }
+              else if(data == 'empty'){
+                window.alert('column not filled');
+              }
+            else {
+                window.alert('Login Gagal');
+              }
+            });
+          });
+        });
+      </script>
+
+  </body>
+</html>

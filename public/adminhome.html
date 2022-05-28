@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Blood Works</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    <a href="adminhome.html"><img class="logo-btn" src="images/Group 113 1.svg" alt=""></a>
+                </div>
+
+                <ul class="nav-items">
+                      <li>
+                        <a href="adminuser.html">User List</a>
+                      </li>
+                      <li>
+                        <a href="adminpatient.html">Patient List</a>
+                      </li>
+                      <li>
+                        <a href="admindonatur.html">Donor List</a>
+                      </li>
+                      <li>
+                        <a href="adminrumahsakit.html">Hospital List</a>
+                      </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    
+
+    <div class="header-container">
+        <div class="wrapper">
+            <header>
+                <div class="hero-content">
+                    <h1>
+                        WELCOME <br>
+                        TO <br>
+                        BLOOD <br>
+                        WORKS
+                    </h1>
+                    <p>
+                        Donate and recieve blood fast, <br> for your beloved ones. 
+                    </p>
+                </div>
+                <div class="hero-image">
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <div class="body-container">
+        <div class="wrapper">
+            <body>
+                <div class="about-us">
+                    <div class="row">
+                        <div class="column">
+                            <img src="images/Group 113.png" alt="">
+                        </div>
+                        <div class="column-about">
+                            <p>
+                                Blood Works is a non profit organization that helps you with <br>
+                                donating your blood and pairing it with people in need. We <br> 
+                                worked with many hospitals across Indonesia and many South-East <br>
+                                Asian countries to help saving people with blood.  
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="body-content">
+                        <div class="row">
+                            <div class="register-content">
+                                <h1>Hospital Register</h1>
+                                <p>Fill in the hospital</p>
+                                <hr>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name..">
+                                <label for="name">Address</label>
+                                <input type="text" id="address" name="address" placeholder="Insert Address..">
+                                <label for="contact">Contact</label>
+                                <input type="text" placeholder="Enter contact number.." name="contact" id="contact" required>
+                                <button type="submit" class="registerbtn" id="register">Submit</button>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <div class="row">
+                            <div class="register-content">
+                                <h1>Admin Register</h1>
+                                <p>Fill in the requirement</p>
+                                <hr>
+                                <label for="name">Name</label>
+                                <input type="text" id="adminname" name="name" placeholder="Your name..">
+                                <label for="name">Email</label>
+                                <input type="text" id="adminaddress" name="address" placeholder="Insert Email..">
+                                <label for="name">Password</label>
+                                <input type="password" id="admin_password" name="address" placeholder="Insert password..">
+                                <label for="contact">Contact</label>
+                                <input type="text" placeholder="Enter contact number.." name="contact" id="admincontact" required>
+                                <button type="submit" class="registerbtn" id="registerAdmin">Submit</button>
+                                <button type="submit" class="registerbtn" id="listAdmin">Check Admin List</button>
+                                <button type="submit" class="registerbtn" id="logout">Logout</button>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+            </body>
+        </div>
+    </div>
+
+    <div class="footer-container">
+        <div class="wrapper">
+            <footer>
+                <div class="footer-content">
+                    <div class="row">
+                        <div class="column-left">
+                            <div class="footer-img">
+                                <img src="images/footer.png" alt="">
+                                <p>Save a life one drop at a time.</p>
+                            </div>
+                        </div>
+                        <div class="column-right">
+                            <ul class="footer-links">
+                                <li><a href="adminhome.html">Hospital Register</a></li>
+                                <li><a href="adminuser.html">User List</a></li>
+                                <li><a href="adminpatient.html">Patient List</a></li>
+                                <li><a href="admindonatur.html">Donor List</a></li>
+                                <li><a href="adminrumahsakit.html">Hospital List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        jQuery(document).ready(function($) {
+          var hospital_name, hospital_address, hospital_contact, admin_name, admin_email, admin_contact;
+          $('#register').click(function() {
+            hospital_name = $('#name').val();
+            hospital_address = $('#address').val();
+            hospital_contact = $('#contact').val();
+                          
+          $.post('/registerRS', { hospital_name: hospital_name, hospital_address: hospital_address, hospital_contact: hospital_contact }, function(data) {
+            if (data === 'done') {
+               window.location.href = '/adminlist.html';
+               window.alert('Registrasi Sukses');
+              }
+            else if (data === 'empty') {
+                window.alert('Column not filled');
+              }
+            else {
+                window.alert('Registrasi Gagal');
+              }
+            });
+          });
+
+        $('#registerAdmin').click(function() {
+            admin_name = $('#adminname').val();
+            admin_email = $('#adminaddress').val();
+            admin_password = $('#admin_password').val();
+            admin_contact = $('#admincontact').val();
+                          
+          $.post('/registerAdmin', { admin_name: admin_name, admin_email: admin_email, admin_password: admin_password, admin_contact: admin_contact }, function(data) {
+            if (data === 'done') {
+               window.location.href = '/adminhome.html';
+               window.alert('Registrasi Sukses');
+              }
+            else if (data === 'empty') {
+                window.alert('Column not filled');
+              }
+            else {
+                window.alert('Registrasi Gagal');
+              }
+            });
+          });
+
+        $("#listAdmin").click(function () {
+          $.post("/checkAdmin", { }, function (data) {
+            if (data === "done") {
+              window.location.href = "/adminlist.html";
+              window.alert("Sukses");
+            } else {
+              window.alert("Admin not found");
+              window.location.href = "/adminhome.html";
+            }
+          });
+        });
+
+        $("#logout").click(function () {
+          $.post("/logout", { }, function (data) {
+            if (data === "logout") {
+              window.location.href = "/adminlogin.html";
+              window.alert("Sukses");
+            } else {
+              window.alert("Fail");
+              window.location.href = "/adminhome.html";
+            }
+          });
+        });
+      });
+      </script>
+
+</body>
+</html>

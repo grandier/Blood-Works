@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="" />
+          </div>
+          <ul class="nav-items">
+            <li>
+              <a href="home.html">About Us</a>
+            </li>
+            <li>
+              <a href="donatur.html">Become a Donor</a>
+            </li>
+            <li>
+              <a href="patient.html">Need Blood?</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Hospital List</a>
+            </li>
+            <li>
+              <a href="bloodbank.html">Blood Bank List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="hospital-container">
+      <div class="wrapper">
+        <hospital>
+          <div class="hospital-content">
+            <h1>Hospitals</h1>
+            <p>These are currently the hospitals we are partnered with.</p>
+            <hr />
+
+            <input
+              type="text"
+              placeholder="Search by id.."
+              name="search"
+              id="search"
+              onkeyup="myFunction()"
+            />
+            <button type="submit" class="registerbtn" id="submit">
+              Check Blood Bank
+            </button>
+            <button type="submit" class="registerbtn" id="donor">
+              Become A Donor in This Hospital
+            </button>
+
+            <table id="data_rs">
+              <thead>
+                <tr>
+                  <th>Hospital ID</th>
+                  <th>Hospital Name</th>
+                  <th>Address</th>
+                  <th>Contact</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </hospital>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="" />
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li><a href="home.html">About Us</a></li>
+                  <li><a href="donatur.html">Become a Donor</a></li>
+                  <li><a href="patient.html">Need Blood?</a></li>
+                  <li><a href="rumahsakit.html">Hospital List</a></li>
+                  <li><a href="bloodbank.html">Blood Bank List</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        var hospital_id;
+        $("#submit").click(function () {
+          hospital_id = $("#search").val();
+          $.post("/checkBB", { hospital_id: hospital_id }, function (data) {
+            if (data === "done") {
+              window.location.href = "/bloodbank.html";
+              window.alert("Sukses");
+            } else if (data == "empty") {
+              window.alert("No Blood Bank in this Hospital");
+              window.location.href = "/rumahsakit.html";
+            } else {
+              window.alert("Hospital ID not found");
+              window.location.href = "/rumahsakit.html";
+            }
+          });
+        });
+        $("#donor").click(function () {
+          hospital_id = $("#search").val();
+          $.post(
+            "/checkDonatur",
+            { hospital_id: hospital_id },
+            function (data) {
+              if (data === "done") {
+                window.location.href = "/donatur.html";
+                window.alert("Sukses");
+              } else if (data == "empty") {
+                window.alert("Hospital ID not found");
+                window.location.href = "/rumahsakit.html";
+              }
+              else {
+                window.alert("Column not filled");
+                window.location.href = "/rumahsakit.html";
+              }
+            }
+          );
+        });
+
+        $.post("/showRS", {}, function (data) {
+          console.log(data);
+          $("#data_rs").html(data);
+        });
+      });
+
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data_rs");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital - Blood Works</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="wrapper">
+          <nav>
+            <div class="logo">
+              <a href="adminhome.html"><img class="logo-btn" src="images/Group 113 1.svg" alt=""></a>
+            </div>
+            <ul class="nav-items">
+                  <li>
+                    <a href="adminuser.html">User List</a>
+                  </li>
+                  <li>
+                    <a href="adminpatient.html">Patient List</a>
+                  </li>
+                  <li>
+                    <a href="admindonatur.html">Donor List</a>
+                  </li>
+                  <li>
+                    <a href="adminrumahsakit.html">Hospital List</a>
+                  </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="hospital-container">
+          <div class="wrapper">
+              <hospital>
+                  <div class="hospital-content">
+                    <h1>Hospitals</h1>
+                    <p>These are currently the list of Hospitals</p>
+                    <hr>
+                    <input type="text" placeholder="Search by id.." name="search"id="search"onkeyup="myFunction()"/>
+                    <button type="submit" class="registerbtn" id="edit">Edit</button>
+                    <table id="data_hospital">
+                      <tr>
+                          <th>Hospital ID</th>
+                          <th>Name</th>
+                          <th>Adsress</th>
+                          <th>Contact</th>
+                      </tr>
+                  </table>
+                  </div>
+              </hospital>
+              <button type="submit" class="registerbtn" id="back">Back</button>
+          </div>
+      </div>
+
+      <div class="footer-container">
+        <div class="wrapper">
+            <footer>
+                <div class="footer-content">
+                    <div class="row">
+                        <div class="column-left">
+                            <div class="footer-img">
+                                <img src="images/footer.png" alt="">
+                                <p>Save a life one drop at a time.</p>
+                            </div>
+                        </div>
+                        <div class="column-right">
+                            <ul class="footer-links">
+                                <li><a href="adminhome.html">Hospital Register</a></li>
+                                <li><a href="adminuser.html">User List</a></li>
+                                <li><a href="adminpatient.html">Patient List</a></li>
+                                <li><a href="admindonatur.html">Donor List</a></li>
+                                <li><a href="adminrumahsakit.html">Hospital List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        var hospital_id
+        $("#edit").click(function () {
+          hospital_id = $("#search").val();
+          $.post("/checkRS",{ hospital_id: hospital_id }, function (data1) {
+              if (data1 === "done") {
+                window.location.href = "/adminupdateRS.html";
+                window.alert("Sukses");
+              } else if (data1 == "empty") {
+                window.alert("Column is empty");
+                window.location.href = "/adminrumahsakit.html";
+              } else {
+                window.alert("Hospital ID not found");
+                window.location.href = "/adminrumahsakit.html";
+              }
+            }
+          );
+        });
+
+        $.post("/showRS", {}, function (data) {
+          console.log(data);
+          $("#data_hospital").html(data);
+        });
+        $("#back").click(function () {
+          window.location.href = "/adminhome.html";
+        });
+      });
+
+      function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("data_hospital");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    </script>
+
+</body>
+</html>

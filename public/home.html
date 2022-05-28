@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome - Blood Works</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="wrapper">
+        <nav>
+          <div class="logo">
+            <img class="logo-btn" src="images/Group 113 1.svg" alt="" />
+          </div>
+
+          <ul class="nav-items">
+            <li>
+              <a href="home.html">About Us</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Become a Donor</a>
+            </li>
+            <li>
+              <a href="patient.html">Need Blood?</a>
+            </li>
+            <li>
+              <a href="rumahsakit.html">Hospital List</a>
+            </li>
+            <li>
+              <a href="bloodbank.html">Blood Bank List</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="header-container">
+      <div class="wrapper">
+        <header>
+          <div class="hero-content">
+            <h1>
+              WELCOME <br />
+              TO <br />
+              BLOOD <br />
+              WORKS
+            </h1>
+            <p>
+              Donate and recieve blood fast, <br />
+              for your beloved ones.
+            </p>
+          </div>
+          <div class="hero-image"></div>
+        </header>
+      </div>
+    </div>
+
+    <div class="body-container">
+      <div class="wrapper">
+        <body>
+          <div class="about-us">
+            <div class="row">
+              <div class="column">
+                <img src="images/Group 113.png" alt="" />
+              </div>
+              <div class="column-about">
+                <p>
+                  Blood Works is a non profit organization that helps you with
+                  <br />
+                  donating your blood and pairing it with people in need. We
+                  <br />
+                  worked with many hospitals across Indonesia and many
+                  South-East <br />
+                  Asian countries to help saving people with blood.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="body-content">
+            <div class="row">
+              <div class="column">
+                <img src="images/Donor.png" alt="" />
+                <h3>WANT TO MAKE AN IMPACT?</h3>
+                <p>
+                  Start donating today to save a life! Your <br />
+                  contribution will help thousand of people.<br />
+                  Donate now and save a life!
+                </p>
+                <a href="rumahsakit.html"> Become a Donor! </a>
+              </div>
+              <div class="column">
+                <img src="images/Patient.png" alt="" />
+                <h3>IN NEED OF BLOOD?</h3>
+                <p>
+                  We cater all blood types just for your need, <br />
+                  click below to get your blood with hospitals <br />
+                  near you!
+                </p>
+                <a href="patient.html"> Receive Blood </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="body-content">
+            <div class="row">
+                <div class="register-content">
+                    <button type="submit" class="registerbtn" id="logout">Logout</button>
+                  </div>
+            </div>
+        </div>
+        </body>
+      </div>
+    </div>
+
+    <div class="footer-container">
+      <div class="wrapper">
+        <footer>
+          <div class="footer-content">
+            <div class="row">
+              <div class="column-left">
+                <div class="footer-img">
+                  <img src="images/footer.png" alt="" />
+                  <p>Save a life one drop at a time.</p>
+                </div>
+              </div>
+              <div class="column-right">
+                <ul class="footer-links">
+                  <li><a href="home.html">About Us</a></li>
+                  <li><a href="donatur.html">Become a Donor</a></li>
+                  <li><a href="patient.html">Need Blood?</a></li>
+                  <li><a href="rumahsakit.html">Hospital List</a></li>
+                  <li><a href="bloodbank.html">Blood Bank List</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $("#logout").click(function () {
+          $.post("/logout", { }, function (data) {
+            if (data === "logout") {
+              window.location.href = "/login.html";
+              window.alert("Sukses");
+            } else {
+              window.alert("Fail");
+              window.location.href = "/home.html";
+            }
+          });
+        });
+        });
+      </script>
+        
+  </body>
+</html>
