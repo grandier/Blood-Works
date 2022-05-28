@@ -23,16 +23,13 @@
               <a href="home.html">About Us</a>
             </li>
             <li>
-              <a href="donatur.html">Become a Donor</a>
+              <a href="rumahsakit.html">Become a Donor</a>
             </li>
             <li>
-              <a href="patient.html">Need Blood?</a>
+              <a href="rumahsakit.html">Need Blood?</a>
             </li>
             <li>
               <a href="rumahsakit.html">Hospital List</a>
-            </li>
-            <li>
-              <a href="bloodbank.html">Blood Bank List</a>
             </li>
           </ul>
         </nav>
@@ -59,6 +56,9 @@
             </button>
             <button type="submit" class="registerbtn" id="donor">
               Become A Donor in This Hospital
+            </button>
+            <button type="submit" class="registerbtn" id="patient">
+              Become A Patient in This Hospital
             </button>
 
             <table id="data_rs">
@@ -129,6 +129,24 @@
             function (data) {
               if (data === "done") {
                 window.location.href = "/donatur.html";
+                window.alert("Sukses");
+              } else if (data == "empty") {
+                window.alert("Hospital ID not found");
+                window.location.href = "/rumahsakit.html";
+              }
+              else {
+                window.alert("Column not filled");
+                window.location.href = "/rumahsakit.html";
+              }
+            }
+          );
+        });
+
+        $("#patient").click(function () {
+          hospital_id = $("#search").val();
+          $.post("/checkPatientRS",{ hospital_id: hospital_id }, function (data) {
+              if (data === "done") {
+                window.location.href = "/patient.html";
                 window.alert("Sukses");
               } else if (data == "empty") {
                 window.alert("Hospital ID not found");

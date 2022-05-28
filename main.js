@@ -283,6 +283,67 @@ app.post('/showPatient', (req, res) =>{
     })
 });
 
+app.post('/checkPatientRS', (req, res) =>{
+    temp = req.session;
+    temp.hospital_id = req.body.hospital_id
+    if(temp.hospital_id.length > 0){
+        const query1 = `select * from rumah_sakit where hospital_id = ${temp.hospital_id};`
+        const query = `select patient_id, patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease from patient inner join rumah_sakit ON patient.hospital_id = rumah_sakit.hospital_id WHERE patient.hospital_id = ${temp.hospital_id};`
+        db.query(query1, (err, results) => {
+            if (results.rowCount == 0) {
+                res.end('hospital')
+                return
+            }
+            db.query(query, (err, results) => {
+                if (results.rowCount == 0) {
+                    res.end('fail')
+                    return
+                }
+                res.end('done')
+            })
+        })
+    }
+    else{
+        res.end('empty')
+    } 
+});
+
+app.post('/showPatientRS', (req, res) =>{
+    temp = req.session
+    const query = `select patient_id, patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease from patient inner join rumah_sakit ON patient.hospital_id = rumah_sakit.hospital_id WHERE patient.hospital_id = ${temp.hospital_id};`
+    db.query(query, (err, results) => {
+        if(err){
+            console.log(err)
+            res.end('error')
+            return
+        }
+        //res.send(results.rows)
+        res.write(`<table id="data_patient">
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Contact</th>
+                        <th>Blood Type</th>
+                        <th>Current Disease</th>
+                    </tr>
+                `)
+        for(row of results.rows){
+            console.log(row)
+            res.write(`<tr>
+                        <td>${row["patient_id"]}</td>
+                        <td>${row["patient_name"]}</a></td>
+                        <td>${row["patient_age"]}</td>
+                        <td>${row["patient_contact"]}</td>
+                        <td>${row["patient_blood_type"]}</td>
+                        <td>${row["patient_current_disease"]}</td>
+                        </tr>`);
+        }
+        res.end(`</table>`);
+    })
+});
+
+
 app.post('/checkPatient', (req, res) =>{
     temp = req.session;
     temp.patient_id = req.body.patient_id
@@ -508,7 +569,7 @@ app.post('/registerPatient', (req, res) =>{
     temp.blood_type = req.body.blood_type;
     temp.current_disease = req.body.current_disease;
     if(temp.name.length > 0 && temp.age.length > 0 && temp.contact.length > 0 && temp.blood_type.length > 0 && temp.current_disease.length > 0){
-        const query = `INSERT INTO patient (patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease) VALUES ('${temp.name}',${temp.age},${temp.contact},'${temp.blood_type}','${temp.current_disease}');`
+        const query = `INSERT INTO patient (patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease, hospital_id) VALUES ('${temp.name}',${temp.age},${temp.contact},'${temp.blood_type}','${temp.current_disease}', ${temp.hospital_id});`
         db.query(query, (err) => {
             if (err) {
                 console.log(err)

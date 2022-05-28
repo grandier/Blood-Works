@@ -38,18 +38,20 @@
           <div class="wrapper">
               <hospital>
                   <div class="hospital-content">
-                    <h1>Hospitals</h1>
-                    <p>These are currently the list of Hospitals</p>
+                    <h1>Patients</h1>
+                    <p>These are currently the list of Patients</p>
                     <hr>
+
                     <input type="text" placeholder="Search by id.." name="search"id="search"onkeyup="myFunction()"/>
-                    <button type="submit" class="registerbtn" id="edit">Edit</button>
-                    <button type="submit" class="registerbtn" id="patient">Patients in This Hospital</button>
-                    <table id="data_hospital">
+
+                    <table id="data_patient">
                       <tr>
-                          <th>Hospital ID</th>
+                          <th>Patient ID</th>
                           <th>Name</th>
-                          <th>Adsress</th>
+                          <th>Age</th>
                           <th>Contact</th>
+                          <th>Blood Type</th>
+                          <th>Current Disease</th>
                       </tr>
                   </table>
                   </div>
@@ -87,51 +89,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
       jQuery(document).ready(function ($) {
-        var hospital_id
-        $("#edit").click(function () {
-          hospital_id = $("#search").val();
-          $.post("/checkRS",{ hospital_id: hospital_id }, function (data1) {
-              if (data1 === "done") {
-                window.location.href = "/adminupdateRS.html";
-                window.alert("Sukses");
-              } else if (data1 == "empty") {
-                window.alert("Column is empty");
-                window.location.href = "/adminrumahsakit.html";
-              }
-              else {
-                window.alert("Hospital ID not found");
-                window.location.href = "/adminrumahsakit.html";
-              }
-            }
-          );
-        });
-        
-        $("#patient").click(function () {
-          hospital_id = $("#search").val();
-            $.post("/checkPatientRS",{ hospital_id: hospital_id }, function (data) {
-                if (data === "done") {
-                  window.location.href = "/adminpatientrs.html";
-                  window.alert("Sukses");
-                } else if (data == "empty") {
-                  window.alert("No Input");
-                  window.location.href = "/adminrumahsakit.html";
-                } else if (data == "hospital") {
-                  window.alert("No Hospital Found");
-                  window.location.href = "/adminrumahsakit.html";
-                }
-                else {
-                  window.alert("No Patient ID found");
-                  window.location.href = "/adminrumahsakit.html";
-                }
-              })
-          });
+        var patient_id
 
-        $.post("/showRS", {}, function (data) {
+        $.post("/showPatientRS", {}, function (data) {
           console.log(data);
-          $("#data_hospital").html(data);
+          $("#data_patient").html(data);
         });
         $("#back").click(function () {
-          window.location.href = "/adminhome.html";
+          window.location.href = "/adminrumahsakit.html";
         });
       });
 
@@ -139,7 +104,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("search");
         filter = input.value.toUpperCase();
-        table = document.getElementById("data_hospital");
+        table = document.getElementById("data_patient");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[0];
