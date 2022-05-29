@@ -123,10 +123,7 @@
         });
         $("#donor").click(function () {
           hospital_id = $("#search").val();
-          $.post(
-            "/checkDonatur",
-            { hospital_id: hospital_id },
-            function (data) {
+          $.post("/checkDonatur",{ hospital_id: hospital_id }, function (data) {
               if (data === "done") {
                 window.location.href = "/donatur.html";
                 window.alert("Sukses");

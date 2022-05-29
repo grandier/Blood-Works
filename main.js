@@ -616,9 +616,18 @@ app.post('/checkDonatur', (req, res) =>{
     temp = req.session;
     temp.hospital_id = req.body.hospital_id
     if(temp.hospital_id.length > 0){
-        res.end('done')
+        const query = `select * from rumah_sakit where hospital_id = ${temp.hospital_id};`
+        db.query(query, (err, results) => {
+            if (results.rowCount == 0) {
+                res.end('fail')
+            }
+            res.end('done')
+        }) 
     }
-    res.end('empty') 
+    else{
+        res.end('empty')
+    }
+     
 });
 
 app.post('/checkDonaturBB', (req, res) =>{
