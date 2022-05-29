@@ -154,7 +154,7 @@
                           
           $.post('/registerRS', { hospital_name: hospital_name, hospital_address: hospital_address, hospital_contact: hospital_contact }, function(data) {
             if (data === 'done') {
-               window.location.href = '/adminlist.html';
+               window.location.href = '/adminhome.html';
                window.alert('Registrasi Sukses');
               }
             else if (data === 'empty') {

@@ -629,17 +629,16 @@ app.post('/checkDonaturBB', (req, res) =>{
         const query = `select donor_name, donor_age, donor_contact, donor_blood_type, donor_current_disease from donatur inner join blood_bank ON donatur.donor_id = blood_bank.bank_id inner join rumah_sakit ON blood_bank.hospital_id = rumah_sakit.hospital_id WHERE blood_bank.bank_id = ${temp.donor_id} AND rumah_sakit.hospital_id = ${temp.hospital_id};`
         db.query(query, (err, results) => {
             if (results.rowCount == 0) {
-                res.end('fail')
+                res.end('empty')    
                 return
-            }
-            else {
-                res.end('done')
-            }
-            
+            } 
+            res.end('done')            
         })
-        res.end('done')
+        //res.end('done')
     }
-    res.end('fail')
+    else {
+        res.end('fail')
+    }
 });
 
 app.post('/showDonatur', (req, res) =>{
@@ -784,7 +783,6 @@ app.post('/checkBB', (req, res) =>{
         const query = `select bank_id, blood_name, blood_type from blood_bank inner join rumah_sakit ON blood_bank.hospital_id = rumah_sakit.hospital_id WHERE rumah_sakit.hospital_id = ${temp.hospital_id};`
         db.query(query1, (err, results) => {
             if (results.rowCount == 0) { 
-                console.log(results)
                 res.end('fail')
                 return
             }
