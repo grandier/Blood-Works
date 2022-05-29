@@ -92,6 +92,13 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 ```
 
 ---
+## Tampilan Relation Table dan UML
+
+![alt text](https://github.com/grandier/Blood-Works/blob/master/ERD_Blood%20Works.jpg)
+
+![alt text](https://github.com/grandier/Blood-Works/blob/master/UML%20Database_Blood%20Works.png)
+
+---
 
 Final Database Management System Project
 
