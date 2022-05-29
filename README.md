@@ -24,6 +24,10 @@ Untuk user Admin sedikit berbeda dengan user biasa karena user admin bisa melaku
 User dan Admin bisa berinteraksi dengan data secara bebas dan kapan saja dikerenakan website ini menggunakan sebuah server atau host ```PostgreSQL``` yang berbasis ```Azure```, sehingga selama servernya menyala maka tetap bisa mengakses website ini. Namun kekurangan daripada website ini adalah belum dilakukkannya deployment sehingga jika ada orang yang ingin mengaksesnya maka mereka secara local harus memiliki source codenya.
 
 ---
+![alt text](https://github.com/grandier/Blood-Works/tree/master/public/images/logo_bloodworks.png)
+
+
+---
 ## Penjelasan mengenai Table pada Program
 
 ### 1.  ```Account```
@@ -94,13 +98,27 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 ---
 ## Tampilan Relation Table dan UML
 
+Table Relational atau ERD:
+
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/ERD_Blood%20Works.jpg)
 
+UML:
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/UML%20Database_Blood%20Works.png)
 
 ---
+## Tampilan Flowchart dari User dan Admin
 
-Final Database Management System Project
+Flowchart dari User
+
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Flowchart_User_Blood%20Works.png)
+
+Flowchart dari Admin
+
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Flowchart_Admin_Blood%20Works.png)
+
+---
+
+## Final Database Management System Project
 
 This project is made by group 13 of Praktikum Sistem Basis Data which consists of:
 
