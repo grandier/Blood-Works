@@ -144,7 +144,7 @@
 
         $("#patient").click(function () {
           hospital_id = $("#search").val();
-          $.post("/checkPatientRS",{ hospital_id: hospital_id }, function (data) {
+          $.post("/checkRS",{ hospital_id: hospital_id }, function (data) {
               if (data === "done") {
                 window.location.href = "/patient.html";
                 window.alert("Sukses");

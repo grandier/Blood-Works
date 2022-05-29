@@ -291,8 +291,7 @@ ALTER TABLE ONLY public.rumah_sakit ALTER COLUMN hospital_id SET DEFAULT nextval
 --
 
 COPY public.account (user_id, name, email, password, contact) FROM stdin;
-1	Tes	Tes	$2b$10$I8.CxMZafOcgyiAnSOWSSu7.VpWvayNgGeO8YF9PIG38JBmmQZjEa	1234
-2	Admin	Tabrakan	$2b$10$Dc4GA8e6bKwEh8kYXKypDucsy9oAXHRKxM29r8qmaI4oTSSBojsnO	1234
+1	Kemas	kemas@gmail.com	$2b$10$/dXUvGDNQW8faGTwvEMqz.PjRs2/zmfwWtBXQwe8RnkE8GVrktC5O	1234
 \.
 
 
@@ -301,13 +300,7 @@ COPY public.account (user_id, name, email, password, contact) FROM stdin;
 --
 
 COPY public.admin (admin_id, admin_name, admin_email, admin_password, admin_contact) FROM stdin;
-1	Admin	Admin	$2b$10$PbcsvV/ykFyLUDwEgo82C.n8JDhtZivIHR/OhIeeCya5zlGdHffF6	1234
-5	sdadas	dasdas	$2b$10$hEqaR.UOq.qzI83dwFYt9uyNaqJ/p2B9nk6tzBpidSlHZKM6wdm8y	12312
-6	sdadsa	dasdasd	$2b$10$edbjkXuOMYJLR9dDtITtS.UkT.Frim3Mp8fbVdRm9o6YH8EQM98pm	1234
-10	Farhan	Farhan@gmail.com	$2b$10$e.Rx5nsD9hNU/aECJJx8MODxe6REBZUa8wiT6aFRkI3heN6Qe4rV2	1234
-2	Hiyahiyahiya	20	$2b$10$KEInPEci95qVmNLa03pybuf1b1g.3OtvoAwuhY8PFsNNNBMdy03LK	12312312
-3	Halo	Halo	$2b$10$ZEjEYufoou9cF1K/AVYCAeGjaUnlbboSGgQL6pDXWe1sAgkDA9J2m	123456
-4	Nyoba	Nyoba	$2b$10$QC5PaWEF42q7XMrt06hkveNTaeMn5nrWvW39U42rI5lAmeAA/FE1a	123123
+1	Admin	Admin@gmail.com	$2b$10$NyY.Vt3x1wqY23L3Eh45ueQf6PmLC36Fx9QvVxJTyNY0pLUja9qiu	1234
 \.
 
 
@@ -316,9 +309,7 @@ COPY public.admin (admin_id, admin_name, admin_email, admin_password, admin_cont
 --
 
 COPY public.blood_bank (bank_id, blood_name, blood_type, hospital_id) FROM stdin;
-1	Kemas	AB Positive	8
-2	Kemas	O Negative	3
-3	Kemas	B Negative	3
+1	Ghulam	A Positive	1
 \.
 
 
@@ -327,9 +318,7 @@ COPY public.blood_bank (bank_id, blood_name, blood_type, hospital_id) FROM stdin
 --
 
 COPY public.donatur (donor_id, donor_name, donor_age, donor_contact, donor_blood_type, donor_current_disease, hospital_id) FROM stdin;
-1	Kemas	23	12345	AB Positive	adawdawdawdwad	8
-2	Kemas	44	235612	O Negative	-	3
-3	Kemas	34	1230897123789	B Negative	Nothing	3
+1	Ghulam	23	12345	A Positive	batuk	1
 \.
 
 
@@ -338,8 +327,7 @@ COPY public.donatur (donor_id, donor_name, donor_age, donor_contact, donor_blood
 --
 
 COPY public.patient (patient_id, patient_name, patient_age, patient_contact, patient_blood_type, patient_current_disease, hospital_id) FROM stdin;
-1	Sabet	12	12345	B Unknown	none	1
-2	Andin	12	123123	A Negative	none	2
+1	Farhan Ganteng	20	123123	B Unknown	none	1
 \.
 
 
@@ -348,16 +336,8 @@ COPY public.patient (patient_id, patient_name, patient_age, patient_contact, pat
 --
 
 COPY public.rumah_sakit (hospital_id, hospital_name, hospital_address, hospital_contact) FROM stdin;
-4	Premier	JL H Mean Hiya	121321312312
-5	Premier	JL H Mean Hiya	121321312312
-6	Premier	JL BOjo negoro	12323123
-7	Tes	jl hiyahiyahiyahiya	32112312
-8	nyoba	sdasdasdasd	12312312
-9	nyoba	sdasdasdasd	12312312
-10	Soekarno	JL pancasila	12331231
-1	Mantap	NYOABBBBBBN	123213
-2	Saih	sdasdasdasdasd	123123
-3	Ghulam	adsdadawdwdadfhgyutwerfwfs	23123
+1	Rumah Sakit Premier	Jl H Mean 1	87844332211
+2	Rumah Sakit Merdeka Raya	Jl Merdeka No.10	123412341234
 \.
 
 
@@ -365,42 +345,42 @@ COPY public.rumah_sakit (hospital_id, hospital_name, hospital_address, hospital_
 -- Name: account_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.account_user_id_seq', 3, true);
+SELECT pg_catalog.setval('public.account_user_id_seq', 1, true);
 
 
 --
 -- Name: admin_admin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.admin_admin_id_seq', 10, true);
+SELECT pg_catalog.setval('public.admin_admin_id_seq', 1, true);
 
 
 --
 -- Name: blood_bank_bank_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.blood_bank_bank_id_seq', 3, true);
+SELECT pg_catalog.setval('public.blood_bank_bank_id_seq', 1, true);
 
 
 --
 -- Name: donatur_donor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.donatur_donor_id_seq', 3, true);
+SELECT pg_catalog.setval('public.donatur_donor_id_seq', 1, true);
 
 
 --
 -- Name: patient_patient_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.patient_patient_id_seq', 2, true);
+SELECT pg_catalog.setval('public.patient_patient_id_seq', 1, true);
 
 
 --
 -- Name: rumah_sakit_hospital_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kemas_sbd
 --
 
-SELECT pg_catalog.setval('public.rumah_sakit_hospital_id_seq', 10, true);
+SELECT pg_catalog.setval('public.rumah_sakit_hospital_id_seq', 2, true);
 
 
 --

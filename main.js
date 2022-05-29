@@ -305,7 +305,7 @@ app.post('/checkPatientRS', (req, res) =>{
     }
     else{
         res.end('empty')
-    } 
+    }
 });
 
 app.post('/showPatientRS', (req, res) =>{
@@ -329,7 +329,6 @@ app.post('/showPatientRS', (req, res) =>{
                     </tr>
                 `)
         for(row of results.rows){
-            console.log(row)
             res.write(`<tr>
                         <td>${row["patient_id"]}</td>
                         <td>${row["patient_name"]}</a></td>
@@ -662,7 +661,6 @@ app.post('/showDonatur', (req, res) =>{
                     </tr>
                     </thead>`)
         for(row of results.rows){
-            console.log(row)
             res.write(`<tr>
                         <td>${row["donor_name"]}</td>
                         <td>${row["donor_age"]}</a></td>
