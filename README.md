@@ -24,7 +24,7 @@ Untuk user Admin sedikit berbeda dengan user biasa karena user admin bisa melaku
 User dan Admin bisa berinteraksi dengan data secara bebas dan kapan saja dikerenakan website ini menggunakan sebuah server atau host ```PostgreSQL``` yang berbasis ```Azure```, sehingga selama servernya menyala maka tetap bisa mengakses website ini. Namun kekurangan daripada website ini adalah belum dilakukkannya deployment sehingga jika ada orang yang ingin mengaksesnya maka mereka secara local harus memiliki source codenya.
 
 ---
-![alt text](https://github.com/grandier/Blood-Works/tree/master/public/images/logo_bloodworks.png)
+![alt text](https://github.com/grandier/Blood-Works/blob/master/public/images/logo_bloodworks.png)
 
 
 ---
