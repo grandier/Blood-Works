@@ -113,21 +113,21 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 
 ```Table Relational atau ERD:```
 
-![alt text](https://github.com/grandier/Blood-Works/blob/master/ERD_Blood%20Works.jpg)
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/ERD_Blood%20Works.jpg)
 
 ```UML:```
 
-![alt text](https://github.com/grandier/Blood-Works/blob/master/UML%20Database_Blood%20Works.png)
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/UML%20Database_Blood%20Works.png)
 
 ---
 ## Tampilan Flowchart dari User dan Admin
 
 ```Flowchart dari User```
 
-![alt text](https://github.com/grandier/Blood-Works/blob/master/Flowchart_User_Blood%20Works.png)
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/Flowchart_User_Blood%20Works.png)
 
 ```Flowchart dari Admin```
 
-![alt text](https://github.com/grandier/Blood-Works/blob/master/Flowchart_Admin_Blood%20Works.png)
+![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/Flowchart_Admin_Blood%20Works.png)
 
 ---
