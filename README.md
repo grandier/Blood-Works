@@ -8,7 +8,6 @@ This project is made by group 13 of Praktikum Sistem Basis Data which consists o
 
 1. [*Qinthara Andini Hananto*](https://github.com/qintharaandini)
 2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier/grandier) 
-3. [Septyana Wulansari]()
 
 
 as final programming assignment in Even Semester 2021/2022 for course Data based System + Lab. 
@@ -37,8 +36,6 @@ Untuk user Admin sedikit berbeda dengan user biasa karena user admin bisa melaku
 
 User dan Admin bisa berinteraksi dengan data secara bebas dan kapan saja dikerenakan website ini menggunakan sebuah server atau host ```PostgreSQL``` yang berbasis ```Azure```, sehingga selama servernya menyala maka tetap bisa mengakses website ini. Namun kekurangan daripada website ini adalah belum dilakukkannya deployment sehingga jika ada orang yang ingin mengaksesnya maka mereka secara local harus memiliki source codenya.
 
----
-![alt text](https://github.com/grandier/Blood-Works/blob/master/public/images/logo_bloodworks.png)
 
 ---
 ## Penjelasan mengenai Table pada Program
@@ -137,5 +134,8 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 
 </details>
 
+
+---
+![alt text](https://github.com/grandier/Blood-Works/blob/master/public/images/logo_bloodworks.png)
 
 ---
