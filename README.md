@@ -14,35 +14,35 @@ as final programming assignment in Even Semester 2021/2022 for course Data based
 (ENCE604016) in Undergraduate of Computer Engineering study program, Department of Electrical Engineering, Faculty of Engineering, Universitas Indonesia.
 
 ---
-## Gambaran Umum Program
+## Overview of the Program
 
-Pada proyek ini kelompok kita membuat sebuah website berbasis data yang menggunakan sistem data berbasis SQL yaitu ```PostgreSQL```. Untuk bagian front-end kita tidak menggunakan sebuah framework seperti ```React dan Bootstrap```, kita hanya menggunakan pure ```HTML+CSS```. Untuk bagian back-end kami menggunakan sebuah framework yaitu ```Node.Js``` dan untuk menhubungkannya dengan front-end kita menggunakan ```Express```.
+In this project, our group created a data-driven website that uses an SQL-based data system, namely[```PostgreSQL```](https://www.postgresql.org/). For the front-end part, we did not use any frameworks like [```React```](https://reactjs.org/) or [```Bootstrap```](https://getbootstrap.com/), we only used ```HTML+CSS```.  For the back-end part, we used a framework, namely [```Node.Js```](https://nodejs.org/en/) and to connect it to the front-end, we used [```Express```](https://expressjs.com/).
 
-Pada website terdapat 2 jenis user yang bisa login yaitu Admin dan User biasa. User sendiri bisa mendaftarkan akunnya jika belum pernah mendaftar pada website ini. Setelah mereka mendaftarkan dirinya mereka bisa melakukan login. Login dan Register menggunakan encryption oleh bycrypt. Setelah mereka login mereka dapat melakukan hal-hal berikut, diantaranya adalah:
+The website has two types of users who can log in: Admin and regular Users. Users can register for an account if they have not registered on the website before. After they register, they can log in. Login and registration use encryption by bycrypt. After they log in, they can do the following:
 
-1. Melihat  List Rumah Sakit
-2. Berinteraksi pada Landing Page
-3. Mendaftarkan diri sebagai Donor
-4. Mendaftarkan diri sebagai Pasien
-5. Bisa melihat list dari Bank Darah
+1. View the list of Hospitals
+2. Interact with the Landing Page
+3. Register as a Donor
+4. Register as a Patient
+5. View the list of Blood Banks
 
-Untuk user Admin sedikit berbeda dengan user biasa karena user admin bisa melakukkan hal-hal yang tidak bisa dilakukkan oleh user biasa, hal-hal yang bisa dilakukan oleh admin diantaranya adalah sebagai berikut.
+For Admin users, they can do some things that regular users cannot do. Some of the things that Admin users can do are as follows.
 
-1. Mendaftarkan dan meng-edit rumah sakit dalam sistem datanya dan melihat list rumah sakit
-2. Mendaftarkan admin lain dan juga melihat list admin
-3. Melihat list user dan bisa menghapus user yang dipilih
-4. Melihat list patient dan bisa menghapus serte meng-edit isinya
-5. Bisa melihat list dari donor
+1. Register and edit hospitals in the system data and view the list of hospitals
+2. Register other admins and view the list of admins
+3. View the list of users and delete selected users
+4. View the list of patients and edit/delete the contents
+5. View the list of donors
 
-User dan Admin bisa berinteraksi dengan data secara bebas dan kapan saja dikerenakan website ini menggunakan sebuah server atau host ```PostgreSQL``` yang berbasis ```Azure```, sehingga selama servernya menyala maka tetap bisa mengakses website ini. Namun kekurangan daripada website ini adalah belum dilakukkannya deployment sehingga jika ada orang yang ingin mengaksesnya maka mereka secara local harus memiliki source codenya.
+Users and Admins can interact with data freely and anytime because this website uses a server or host based on [```PostgreSQL```](https://www.postgresql.org/) on [```Azure```](https://azure.microsoft.com/en-gb/), so as long as the server is on, they can still access this website. However, the disadvantage of this website is that it has not been deployed, so if someone wants to access it, they must have the source code locally.
 
 
 ---
-## Penjelasan mengenai Table pada Program
+## Explanation of Tables in the Program
 
 ### 1.  ```Account```
 
-Table Account adalah table yang berguna untuk menyimpan data ```User``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Account table is used to store the data of the ```User``` on the website. This table has several attributes, including:
 ```
 1. User_ID
 2. Name
@@ -53,7 +53,7 @@ Table Account adalah table yang berguna untuk menyimpan data ```User``` dari web
 
 ### 2.  ```Admin```
 
-Table Admin adalah table yang berguna untuk menyimpan data ```Admin``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Admin table is used to store the data of the ```Admin``` on the website. This table has several attributes, including:
 ```
 1. Admin_ID
 2. Name
@@ -64,7 +64,7 @@ Table Admin adalah table yang berguna untuk menyimpan data ```Admin``` dari webs
 
 ### 3.  ```Patient```
 
-Table Patient adalah table yang berguna untuk menyimpan data ```Patient``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Patient table is used to store the data of the ```Patient``` on the website. This table has several attributes, including:
 ```
 1. Patient_ID
 2. Name
@@ -74,9 +74,9 @@ Table Patient adalah table yang berguna untuk menyimpan data ```Patient``` dari 
 6. Current Disease
 ```
 
-### 4.  ```Donatur```
+### 4.  ```Donors```
 
-Table Donatur adalah table yang berguna untuk menyimpan data ```Donatur``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Donors table is used to store data for blood ```donors``` on the website. This table has several attributes, including:
 ```
 1. Donor_ID
 2. Name
@@ -88,16 +88,16 @@ Table Donatur adalah table yang berguna untuk menyimpan data ```Donatur``` dari 
 
 ### 5.  ```Blood Bank```
 
-Table Blood Bank adalah table yang berguna untuk menyimpan data ```Blood Bank``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Blood Bank table is used to store data for ```blood banks``` on the website. This table has several attributes, including:
 ```
 1. Bank_ID
 2. Name
 3. Blood Type
 ```
 
-### 6.  ```Rumah Sakit```
+### 6.  ```Hospitals```
 
-Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit``` dari websitenya. Tabel ini memiliki beberapa attributes, diantaranya adalah:
+The Hospitals table is used to store data for ```hospitals``` on the website. This table has several attributes, including:
 ```
 1. Hospital_ID
 2. Name
@@ -106,11 +106,11 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 ```
 
 ---
-## Tampilan Relation Table dan UML
+## Relation Table and UML Diagram View
 <details>
-  <summary>Tampilan Relation Table dan UML:</summary>
+  <summary>Relation Table and UML Diagram View:</summary>
 
-  ```Table Relational atau ERD:```
+  ```Table Relational or ERD:```
 
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/ERD_Blood%20Works.jpg)
 
@@ -120,15 +120,15 @@ Table Rumah Sakit adalah table yang berguna untuk menyimpan data ```Rumah Sakit`
 
 </details>
 
-## Tampilan Flowchart dari User dan Admin
+## User and Admin Flowchart View
 <details>
-  <summary>Tampilan Flowchart dari User dan Admin:</summary>
+  <summary>User and Admin Flowchart View:</summary>
 
-  ```Flowchart dari User```
+  ```Flowchart of User```
 
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/Flowchart_User_Blood%20Works.png)
 
-```Flowchart dari Admin```
+```Flowchart of Admin```
 
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/Information/Flowchart_Admin_Blood%20Works.png)
 
