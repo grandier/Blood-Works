@@ -1,6 +1,20 @@
 # Blood-Works
 A Blood Bank Database Management System using PEN (PostgreSQL, Express, Node.JS) Stack
 ---
+
+## Final Database Management System Project
+
+This project is made by group 13 of Praktikum Sistem Basis Data which consists of:
+
+1. [*Qinthara Andini Hananto*](https://github.com/qintharaandini)
+2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier/grandier) 
+3. [Septyana Wulansari]()
+
+
+as final programming assignment in Even Semester 2021/2022 for course Data based System + Lab. 
+(ENCE604016) in Undergraduate of Computer Engineering study program, Department of Electrical Engineering, Faculty of Engineering, Universitas Indonesia.
+
+---
 ## Gambaran Umum Program
 
 Pada proyek ini kelompok kita membuat sebuah website berbasis data yang menggunakan sistem data berbasis SQL yaitu ```PostgreSQL```. Untuk bagian front-end kita tidak menggunakan sebuah framework seperti ```React dan Bootstrap```, kita hanya menggunakan pure ```HTML+CSS```. Untuk bagian back-end kami menggunakan sebuah framework yaitu ```Node.Js``` dan untuk menhubungkannya dengan front-end kita menggunakan ```Express```.
@@ -25,20 +39,6 @@ User dan Admin bisa berinteraksi dengan data secara bebas dan kapan saja dikeren
 
 ---
 ![alt text](https://github.com/grandier/Blood-Works/blob/master/public/images/logo_bloodworks.png)
-
----
-
-## Final Database Management System Project
-
-This project is made by group 13 of Praktikum Sistem Basis Data which consists of:
-
-1. [*Qinthara Andini Hananto*](https://github.com/qintharaandini)
-2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier/grandier) 
-3. [Septyana Wulansari]()
-
-
-as final programming assignment in Even Semester 2021/2022 for course Data based System + Lab. 
-(ENCE604016) in Undergraduate of Computer Engineering study program, Department of Electrical Engineering, Faculty of Engineering, Universitas Indonesia.
 
 ---
 ## Penjelasan mengenai Table pada Program
