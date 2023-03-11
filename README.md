@@ -7,7 +7,7 @@ A Blood Bank Database Management System using PEN (PostgreSQL, Express, Node.JS)
 This project is made by group 13 of Praktikum Sistem Basis Data which consists of:
 
 1. [*Qinthara Andini Hananto*](https://github.com/qintharaandini)
-2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier/grandier) 
+2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier) 
 
 
 as final programming assignment in Even Semester 2021/2022 for course Data based System + Lab. 
