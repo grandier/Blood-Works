@@ -10,7 +10,7 @@ This project is made by group 13 of Praktikum Sistem Basis Data which consists o
 2. [*Kemas Rafly Omar Thoriq*](https://github.com/grandier) 
 
 
-as final programming assignment in Even Semester 2021/2022 for course Data based System + Lab. 
+as final programming assignment in Even Semester 2021/2022 for course Database System + Lab. 
 (ENCE604016) in Undergraduate of Computer Engineering study program, Department of Electrical Engineering, Faculty of Engineering, Universitas Indonesia.
 
 ---
